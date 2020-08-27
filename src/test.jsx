@@ -1,43 +1,60 @@
 import React from 'react';
 
-import './homepage.styles.scss';
+import MenuItem from '../menu-item/menu-item.component';
 
-const HomePage = () => (
-  <div className='homepage'>
-    <h1>Welcome to my Homepage</h1>
-    <div className='directory-menu'>
-      <div className='menu-item'>
-        <div className='content'>
-          <div className='title'>HATS</div>
-          <span className='subtitle'>SHOP NOW</span>
-        </div>
-      </div>
-      <div className='menu-item'>
-        <div className='content'>
-          <div className='title'>JACKETS</div>
-          <span className='subtitle'>SHOP NOW</span>
-        </div>
-      </div>
-      <div className='menu-item'>
-        <div className='content'>
-          <div className='title'>SHOES</div>
-          <span className='subtitle'>SHOP NOW</span>
-        </div>
-      </div>
-      <div className='menu-item'>
-        <div className='content'>
-          <div className='title'>WOMENS</div>
-          <span className='subtitle'>SHOP NOW</span>
-        </div>
-      </div>
-      <div className='menu-item'>
-        <div className='content'>
-          <div className='title'>MENS</div>
-          <span className='subtitle'>SHOP NOW</span>
-        </div>
-      </div>
-    </div>
-  </div>
-);
+import './directory.styles.scss';
 
-export default HomePage;
+class Directory extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      sections: [
+        {
+          title: 'hats',
+          imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+          id: 1,
+          linkUrl: 'hats'
+        },
+        {
+          title: 'jackets',
+          imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+          id: 2,
+          linkUrl: ''
+        },
+        {
+          title: 'sneakers',
+          imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+          id: 3,
+          linkUrl: ''
+        },
+        {
+          title: 'womens',
+          imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+          size: 'large',
+          id: 4,
+          linkUrl: ''
+        },
+        {
+          title: 'mens',
+          imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+          size: 'large',
+          id: 5,
+          linkUrl: ''
+        }
+      ]
+    };
+  }
+
+  render() {
+    return (
+      <div className='directory-menu'>
+        {this.state.sections.map(({ id, ...otherSectionProps }) => (
+          <MenuItem key={id} {...otherSectionProps} />
+        ))}
+      </div>
+    );
+  }
+}
+
+export default Directory;
