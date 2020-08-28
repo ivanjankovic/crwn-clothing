@@ -3,7 +3,7 @@
   height: 240px;
   flex: 1 1 auto;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   border: 1px solid black;
   margin: 0 7.5px 15px;
@@ -42,8 +42,9 @@
   }
 
   .content {
-    height: 90px;
-    padding: 0 25px;
+    height: 50px;
+    padding: 0 50px;
+    margin: -20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,10 +53,11 @@
     background-color: white;
     opacity: 0.65;
     position: absolute;
+    
 
     .title {
       font-weight: bold;
-      margin-bottom: 6px;
+      margin: 10px 0;
       font-size: 22px;
       color: #4a4a4a;
     }
