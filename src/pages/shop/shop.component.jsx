@@ -11,6 +11,7 @@ import WithSpinner from '../../components/with-spinner/with-spinner.component'
 
 const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview)
 const CollectionPageWithSpinner = WithSpinner(CollectionPage)
+
 class ShopPage extends React.Component {
   state = {
     loading: true
@@ -22,7 +23,7 @@ class ShopPage extends React.Component {
     const { updateCollections } = this.props
     const collectionRef = firestore.collection('collections')
 
-    this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapShot => {
+    collectionRef.get().then(snapShot => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapShot)
       updateCollections(collectionsMap)
       this.setState({ loading: false })
