@@ -1,15 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
-import SignIn from '../../components/sign-in/sign-in.component';
-import SignUp from '../../components/sign-up/sign-up.component';
+import { toggleCartHidden } from '../../redux/cart/cart.actions';
+import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
 
-import { SignInAndSignUpContainer } from './sign-in-and-sign-up.styles';
+import {
+  CartContainer,
+  ShoppingIcon,
+  ItemCountContainer
+} from './cart-icon.styles';
 
-const SignInAndSignUpPage = () => (
-  <SignInAndSignUpContainer>
-    <SignIn />
-    <SignUp />
-  </SignInAndSignUpContainer>
+const CartIcon = ({ toggleCartHidden, itemCount }) => (
+  <CartContainer onClick={toggleCartHidden}>
+    <ShoppingIcon />
+    <ItemCountContainer>{itemCount}</ItemCountContainer>
+  </CartContainer>
 );
 
-export default SignInAndSignUpPage;
+const mapDispatchToProps = dispatch => ({
+  toggleCartHidden: () => dispatch(toggleCartHidden())
+});
+
+const mapStateToProps = createStructuredSelector({
+  itemCount: selectCartItemsCount
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CartIcon);

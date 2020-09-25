@@ -1,23 +1,26 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const CollectionPreviewContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
+  // border: 1px solid black;
 
   @media screen and (max-width: 800px) {
     align-items: center;
   }
-`
+`;
 
 export const TitleContainer = styled.h1`
   font-size: 28px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   cursor: pointer;
+  margin-top: 5px;
+
   &:hover {
     color: grey;
   }
-`
+`;
 
 export const PreviewContainer = styled.div`
   display: flex;
@@ -28,4 +31,4 @@ export const PreviewContainer = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-gap: 15px;
   }
-`
+`;

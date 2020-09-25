@@ -27,9 +27,9 @@ export const MenuItemContainer = styled.div`
   &:last-child {
     margin-left: 7.5px;
   }
-
   @media screen and (max-width: 800px) {
-    height: 200px;
+    height: 250px;
+    margin-top: 10px;
   }
 `;
 
@@ -44,7 +44,7 @@ export const BackgroundImageContainer = styled.div`
 export const ContentContainer = styled.div`
   height: 50px;
   padding: 0 25px;
-  margin: -15px 0;
+  // margin: px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
